@@ -5,15 +5,22 @@ import (
 	"net/http"
 	"os"
 	"time"
+
+	"github.com/joho/godotenv"
 )
 
 func main() {
+	err := godotenv.Load()
+	if err != nil {
+		log.Fatalf("error loading .env file: %v", err)
+	}
+
 	fs := http.FileServer(http.Dir("./static"))
 
 	mux := http.NewServeMux()
 	mux.Handle("/", fs)
 
-	port := os.Getenv("PORT")
+	port := os.Getenv("FRONTEND_PORT")
 	if port == "" {
 		port = "3000"
 	}

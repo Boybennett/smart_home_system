@@ -1,4 +1,0 @@
-1. Develop a conceptual model for your chosen database
-2. Create an ER model for the database
-3. Convert the ER model to a logical schema using the relational model
-4. Translate the relational model into a physical database using any DBMS of your choice ( use postgres for this project)

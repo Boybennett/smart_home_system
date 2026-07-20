@@ -2,7 +2,7 @@
 
 /* ============================== Config / state ============================== */
 
-const API_BASE = window.SMART_HOME_API_BASE || 'http://localhost:8090/api';
+const API_BASE = window.SMART_HOME_API_BASE || 'http://localhost:8081/api';
 
 const state = {
   homes: [],
