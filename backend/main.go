@@ -16,11 +16,8 @@ type api struct {
 
 func main() {
 
-	err := godotenv.Load() // Load environment variables from .env file
-	if err != nil {
-		log.Fatalf("error loading .env file: %v", err)
-	}
-	
+	_ = godotenv.Load() // Load environment variables from .env file, if present
+
 	pool := mustConnectDB()
 	defer pool.Close()
 

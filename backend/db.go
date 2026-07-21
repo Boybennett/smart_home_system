@@ -8,15 +8,10 @@ import (
 	"time"
 
 	"github.com/jackc/pgx/v5/pgxpool"
-	"github.com/joho/godotenv"
 )
 
 func mustConnectDB() *pgxpool.Pool {
 
-	err := godotenv.Load() // Load environment variables from .env file
-	if err != nil {
-		log.Fatalf("error loading .env file: %v", err)
-	}
 	dsn := os.Getenv("DATABASE_URL")
 
 	ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)

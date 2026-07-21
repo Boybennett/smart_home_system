@@ -5,17 +5,11 @@ import (
 	"net/http"
 	"os"
 	"time"
-
-	"github.com/joho/godotenv"
 )
 
 // withCORS allows the frontend (served on its own origin/port) to call this API.
 func withCORS(next http.Handler) http.Handler {
 
-	err := godotenv.Load() // Load environment variables from .env file
-	if err != nil {
-		log.Fatalf("error loading .env file: %v", err)
-	}
 	allowedOrigin := os.Getenv("FRONTEND_ORIGIN")
 
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {

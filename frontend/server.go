@@ -10,10 +10,7 @@ import (
 )
 
 func main() {
-	err := godotenv.Load()
-	if err != nil {
-		log.Fatalf("error loading .env file: %v", err)
-	}
+	_ = godotenv.Load() // Load environment variables from .env file, if present
 
 	fs := http.FileServer(http.Dir("./static"))
 
